@@ -8,9 +8,9 @@ import { Observable, of } from 'rxjs';
 export class AuthService {
   private apiUrl = "http://localhost:9000/api/auth";
   constructor(private http: HttpClient) { }
-  
+
   login(credentials: { email: string; password: string }): Observable<any> {
-    return this.http.post(`${this.apiUrl}/login`, credentials);
+    return this.http.post(`${this.apiUrl}/login`, credentials, { withCredentials: true });
   }
   loginWithGoogle(): void {
     window.location.href = `${this.apiUrl}/google`;

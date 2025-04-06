@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
       
     });
     this.formularioLogin = this.form.group({
-      email: ['joan1234@example.com', [Validators.required, Validators.email]], // Valor predeterminado para el email
+      email: ['mar@gmail.com', [Validators.required, Validators.email]], // Valor predeterminado para el email
       password: ['12345678', [Validators.required, Validators.minLength(8)]] // Valor predeterminado para la contraseña
     });
   };
@@ -70,7 +70,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(loginData).subscribe({
       next: (response) => {
         console.log('Login exitoso:', response);
-        localStorage.setItem('access_token', response.token);
+        localStorage.setItem('access_token', response.accesstoken);
         this.exportLoggedIn.emit(true);
       },
       error: (error) => {
